@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+<title>Z00M: Ajax Request Examples</title> 
+ 
+<link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/3.3.0/build/cssfonts/fonts-min.css" /> 
+<script type="text/javascript" src="http://yui.yahooapis.com/3.3.0/build/yui/yui-min.js"></script> 
+ 
+<style type="text/css"> 
+#output li {margin-left:2em;}
+#output { background-color:#FFFFF0; border:1px dotted #666666; padding:1em; margin-top:1em;}
+</style> 
+<!--end custom header content for this example--> 
+ 
+</head> 
+ 
+<body> 
+ 
+	<h1>Z00M: Ajax Request Examples</h1> 
+	 
+	<div class="exampleIntro"> 
+		<p>In the example below, IO is employed to make a cross-domain request to <a href="http://www.z00m.tilmanification.com/server/server.php?fn=loginPlayer&player_name=Lulu">the z00m server</a> to login a player.  The output of the Pipe is an XML-style object.</p> 
+	</div> 
+	
+	<button id="fetch" disabled="disabled">Load Server Response.</button> 
+ 
+<div id="output"> 
+	<ul> 
+		<li>Content from z00m.tilmanification.com</li> 
+    </ul> 
+</div> 
+ 
+<script language="javascript"> 
+ var zlevel = {0 : "Country", 1 : "State", 2 : "Region", 3 : "City", 4 : "Neighborhood"};
+YUI({ filter: 'raw' }).use("io-xdr", "substitute", "json-parse", "node",
+ 
+	function(Y) {
+ 
+		//Data fetched will be displayed in a UL in the
+		//element #output:
+		var output = Y.one("#output ul");
+ 
+		//Configure the cross-domain protocol:
+		var xdrConfig = {
+			id:'flash', //We'll reference this id in the xdr configuration of our transaction.
+			src:'yui/build/io/io.swf' //Relative path to the .swf file from the current page.
+		};
+		Y.io.transport(xdrConfig);
+ 
+		//Event handler called when the transaction begins:
+		var handleStart = function(id, a) {
+			Y.log("io:start firing.", "info", "example");
+			output.set("innerHTML", "<li>Loading news stories via Yahoo! Pipes feed...</li>");
+		}
+ 
+		//Event handler for the success event -- use this handler to write the fetched
+		//RSS items to the page.
+		var handleSuccess = function(id, o, a) {
+ 			Y.log("response received.");
+ 			alert( zlevel.0 );
+ 			output.set("innerHTML", 'Server response: ' + o.responseText);
+			//We use JSON.parse to sanitize the JSON (as opposed to simply eval'ing
+			//it into the page):
+			/**
+			var oRSS = Y.JSON.parse(o.responseText);
+ 
+			//From here, we simply access the JSON data from where it's provided
+			//in the Yahoo! Pipes output:
+			if (oRSS && oRSS.count) {
+ 
+				var s = "<!--begin news stories fetched via Yahoo! Pipes-->",
+					//t in this case is our simple template; this is fed to
+					//Y.Lang.substitute as we loop through RSS items:
+					t = "<li><a href='{link}'>{title}</a>, {pubDate}</li>";
+ 
+				for (var i=0; i<oRSS.count; i++) {
+					s += Y.Lang.substitute(t, oRSS.value.items[i]);
+				}
+ 
+				//Output the string to the page:
+				output.set("innerHTML", s);
+				output.addClass("yui-null");
+ 
+			} else {
+				//No news stories were found in the feed.
+				var s = "<li>The RSS feed did not return any items.</li>";
+			}
+			**/
+		}
+ 
+		//In the event that the HTTP status returned is > 399, a
+		//failure is reported and this function is called:
+		var handleFailure = function(id, o, a) {
+			Y.log("ERROR " + id + " " + a, "info", "example");
+			alert("ERROR " + id + " " + a, "info", "example");
+		}
+ 
+		//With all the aparatus in place, we can now configure our
+		//io call.
+		var cfg = {
+			method: "GET",
+			xdr: {
+				use:'flash' //This is the xdrConfig id we referenced above.
+			},
+			on: {
+				//Our event handlers previously defined:
+				start: handleStart,
+				success: handleSuccess,
+				failure: handleFailure
+			}
+		};
+ 
+		//Wire the buttton to a click handler to fire our request each
+		//time the button is clicked:
+		var handleClick = function(o) {
+			Y.log("Click detected; beginning io request");
+			var obj = Y.io(
+				//this is a specific Pipes feed, populated with cycling news:
+				"http://localhost:8888/z00m/server/server.php?fn=loginPlayer&player_name=lulu",
+				//"http://www.z00m.tilmanification.com/server/server.php?fn=loginPlayer&player_name=Lulu",
+				cfg
+			);
+		}
+ 
+		//add the clickHandler as soon as the xdr Flash module has
+		//loaded:
+		Y.on('io:xdrReady', function() {
+			var fetch = Y.one("#fetch");
+			fetch.set("disabled", false);
+			Y.on("click", handleClick, fetch);
+		});
+ 
+	}
+);
+</script> 
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+body {
+			font: 80% arial, helvetica, sans-serif;
+			margin: 0;
+		}
+		
+		h2 {
+			margin-top: 0;
+		}
+				
+		#header {
+			background:#33CCFF;
+			top:20px;
+			left: 30px;	
+			height:50px;		
+		}
+		#console {
+			position: absolute;
+			top:30px;
+		}
+		#time {
+			position: absolute;
+			top:30px;
+			left: 500px;		
+		}
+		#startGame{
+			position: absolute;
+			top:20px;
+			left: 250px;
+		}
+		#time1 {
+			position: absolute;
+			top:30px;
+			left: 450px;		
+		}
+		#bottom {
+			position: absolute;
+			left: 200px;
+		}
+		#pass {
+			position: absolute;
+			left: 300px;
+		}
+		#quitGame {
+			position: absolute;
+			left: 200px;
+		}
+		
+		
+		#score {
+			position: absolute;
+			top:60px;
+			left: 5px;
+			width: 70px;
+			background:#33CCFF;
+			
+		}
+
+		#right1 {
+			position: absolute;
+			right: 30px;
+			width: 150px;
+		}
+		#article-text {
+			position: absolute;
+			width: 400px;
+			right: 30px;
+			
+			
+		}
+		
+		
+		#tagcloud {
+			position: absolute;
+			top:440px;			
+			right: 30px;
+			width: 350px;
+			
+			/* no pic*/
+			background:#33CCFF;
+			height:200px;
+			
+		}
+		
+		#map{
+			margin: 0 auto;
+		    height: 500px;
+		    width: 700px;
+		}
+	
+		#center1 {
+			margin: 0 480px 0 100px;
+			/*margin: 0 150px 0 200px; original one*/ 
+		}
+		
+		#container {
+  	          width: 100%;
+  	          height: 100%;
+  	          text-align: center;/* IE fix to center the page */
+}
+
+#content {
+  	/*width: 740px;*/
+  	margin: 0 auto;/* center the page in Firefox */
+  	text-align: left;
+	padding: 1px;
+	padding-top:1px;
+}

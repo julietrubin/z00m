@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>z00m! - Article Administration</title>
+	<script type="text/javascript">
+		var server = 'http://localhost:8888/';
+		
+	</script>
+</head>
+<body>
+	<h1>z00m! - Article Administration</h1>
+	<form method="post" action="http://localhost:8888/">
+		<input type="hidden" value="addArticle" name="fn"></input>
+		<table>
+			<tr>
+				<td>ID:</td>
+				<td><input type="text" name="id" value="myID"></input></td>
+			</tr>
+			<tr>
+				<td>Title:</td>
+				<td><input type="text" name="title" value="myTitle"></input></td>
+			</tr>
+			<tr>
+				<td>Body:</td>
+				<td><textarea rows="20" cols="50" name="body">myBody</textarea></td>
+			</tr>
+			<tr>
+				<td>Keywords:</td>
+				<td><input type="text" name="keywords" value="myKeywords"></input> *separate by comma</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

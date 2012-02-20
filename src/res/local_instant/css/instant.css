@@ -1,0 +1,79 @@
+body {
+    margin: auto;
+    width: 960px;
+}
+body, a {
+    color: #242424;
+}
+#header h1 {
+    text-align: center;
+    font-size: 189%;
+}
+#content {
+    height: 500px;
+}
+#map {
+    float: right;
+    width: 600px;
+    height: 100%;
+    margin: 0 auto;
+    background: #F1F1F1;
+}
+/*
+#map .marker {
+    white-space: nowrap;
+    padding: 0.25em 0.5em 0.2em;
+    font-weight: bold;
+}
+*/
+#feed {
+    float: left;
+    width: 340px;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+#feed h2 {
+    font-size: 138.5%;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.5em;
+}
+#feed .doc {
+    text-decoration: none;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    padding: 0.4em 0.6em 0.3em;
+    margin-bottom: 0.5em;
+}
+#feed .doc:hover {
+    border-color: #333;
+    cursor: pointer;
+}
+#feed .doc h3 {
+    font-weight: bold;
+}
+#feed .doc .desc {
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+#feed .doc i {
+    font-style: normal;
+    font-size: 85%;
+    color: #666;
+}
+#feed .doc .date {
+    float: right;
+}
+#footer {
+    clear: both;
+    padding: 1em;
+}
+#footer p {
+    font-size: 85%;
+    color: #999;
+    text-align: center;
+}

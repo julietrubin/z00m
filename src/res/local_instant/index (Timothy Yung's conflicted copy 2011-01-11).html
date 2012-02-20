@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Local Instant</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.2.0/build/cssreset/reset-min.css&amp;3.2.0/build/cssfonts/fonts-min.css&amp;3.2.0/build/cssbase/base-context-min.css">
+    <link rel="stylesheet" type="text/css" href="./css/instant.css" />
+</head>
+<body>
+    <div id="header" class="yui3-cssbase">
+        <h1>Local Instant</h1>
+    </div>
+    
+    <div id="content">
+        
+        <div id="feed">
+            <h2>Hover over a map location!</h2>
+        </div>
+        
+        <div id="map"></div>
+        
+    </div>
+    
+    <div id="footer" class="yui3-yui3-cssbase">
+        <p>Local Instant was created using the Tartine API, YQL, and Google Maps.</p>
+    </div>
+    
+    <!-- textarea id="tmpl-marker" style="display: none;">
+        <div class="content" onmouseover="Instant.showFeed('${zone.woeid}');">${zone.name}</div>
+    </textarea -->
+    
+    <textarea id="tmpl-feed" style="display: none;">
+        {macro renderDoc(doc)}
+            <li>
+                <a href="${doc|link}" title="${doc.title}" class="doc" target="_blank" data-latlng="${doc.ll}">
+                    <h3>${doc.title}</h3>
+                    <p class="desc">
+                        <i>${doc.catid|category} -</i>
+                        {if doc.description}
+                            ${doc.description|truncate:100}
+                        {else}
+                            No description.
+                        {/if}
+                    </p>
+                    {if doc.catid == '1000'}
+                        <p class="date"><i>Starts ${doc.startdate|prettyDate}</i></p>
+                    {elseif doc.publisher.date}
+                        <p class="date"><i>Published ${doc.publisher.date|prettyDate}</i></p>
+                    {/if}
+                    <cite><i>${doc.publisher.name}</i></cite>
+                </a>
+            </li>
+        {/macro}
+        
+        <ol id="feed-${zone.woeid}" class="feed">
+            {for doc in docs}
+                ${_tmpl.renderDoc(doc)}
+            {/for}
+        </ol>
+    </textarea>
+    
+    <script type="text/javascript" src="http://yui.yahooapis.com/3.2.0/build/yui/yui-min.js"></script>
+    <!-- script type="text/javascript" src="http://api.maps.yahoo.com/ajaxymap?v=3.8&amp;appid=XuWwwjDV34H5LeapHQN5IQjRF68HtvqnyoiZZmLids8kKtOefwjfxZHKf2o5kiY-"></script -->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="http://l.yimg.com/d/combo?ls/build/d/modules/localsites-global_common-base/assets/js/1292491248/mini/ytrimpath.js"></script>
+    <script type="text/javascript" src="./js/date-format.js"></script>
+     <!-- script type="text/javascript" src="./js/woemap.js"></script -->
+    <script type="text/javascript" src="./js/instant.js"></script>
+</body>
+</html>

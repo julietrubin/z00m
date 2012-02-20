@@ -1,0 +1,82 @@
+       body {
+			font-size: 12px;
+			padding: 30px;
+		}
+		#map{
+			top:50px;
+			height: 75%;
+			width: 55%;
+			}
+		
+
+		#submit1 {
+			left: 100px;
+			top: 400px;
+			
+		}
+		
+		#article {
+			top: 50px;
+			left: 720px;
+			width:  520px;
+			height: 310px;
+			background: lightblue;
+			position: fixed;
+		}
+
+		#keywords {
+			top: 400px;
+			left: 720px;
+			height: 230px;
+			width: 520px;
+			background: lightblue;
+			position: fixed;
+			
+		}
+		#score {
+			top: 30px;
+			left: 50px;
+			height: 15px;
+			width: 40px;
+			background: lightblue;
+			position: absolute;
+		}
+		
+		#time {
+			top: 30px;
+			left: 400px;
+			height: 15px;
+			width: 40px;
+			background: lightblue;
+			position: absolute;
+		}
+		#submit {
+			top: 600px;
+			left: 400px;
+			
+			
+			position: absolute;
+		}
+        #pass {
+			top: 600px;
+			left: 300px;
+			
+			
+			position: absolute;
+		}
+		#quit {
+			top: 600px;
+			left: 200px;
+			
+			
+			position: absolute;
+		}
+		
+
+		#parent {
+			position: relative;
+			width: 500px;
+			height: 200px;
+			border: 5px solid #ccc;
+			border-width: 5px 10px 20px 30px;
+		}

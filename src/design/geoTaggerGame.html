@@ -1,0 +1,105 @@
+<html>
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="./css/general.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="./css/main.css" type="text/css" media="screen" />
+	
+	<script src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js" type="text/javascript"></script>
+	
+	<script src="./js/popup.js" type="text/javascript"></script>
+	
+	
+	
+	
+    <script type="text/javascript"
+      src="http://api.maps.yahoo.com/ajaxymap?v=3.8&appid=dj0yJmk9UmM2N1E4SHVxamNYJmQ9WVdrOVpWTnZjelpOTlRRbWNHbzlNVEV6TkRZeU5ETTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD0zYg--"></script>
+
+	<title>GeoTagger Game</title>
+</head>
+
+
+<body>
+	
+<div id="map"></div>
+<div id="time">time</div>
+<div id="score">score</div>
+
+
+<div id="submit"><input type="submit" value="Submit" /></div>
+<div id="pass"><input type="submit" value="Pass" /></div>
+<div id="quit"><input type="submit" value="Quit" /></div>
+
+
+
+
+<div id="button">
+<textarea id="article" cols="30" rows="10">Resizable textarea- Article<!--test-->
+	(CNN) -- A teen bull rider was kicked at least once in the chest after she was thrown and later died, Florida authorities said Saturday.
+	
+	Brooke Ann Coats, 16, died from injuries Friday evening at Tampa General Hospital, according to the Hillsborough County Sheriff's Office.
+	
+	Coats was able to walk out of the ring after the 8:30 p.m. incident at 301 Rodeo on U.S. 301S, east of Tampa, the office said in a statement. She experienced difficulty breathing and collapsed.
+	
+	An off-duty paramedic rendered aid until Coats was taken to the hospital, where she died during surgery, officials said.
+	
+	An investigation continues, but detectives do not suspect foul play.
+</textarea>
+
+</div>
+
+
+<div id="keywords">
+	<strong>fixed positioned element -</strong><br /><!--test-->
+	LeBron James(notes) almost -- almost -- got the better of Kobe Bryant(notes) at the NBA All-Star Game. But on his home floor, Kobe got the last laugh.
+For a while it appeared all but certain that Kobe would be named MVP of the game on his home court at the Staples Center. The Los Angeles Lakers star had 37 points midway through the fourth quarter and appeared to be on his way to setting Wilt Chamberlin's all-time game scoring record of 42. He and the West All-Stars were cruising in the game with a double-digit lead.
+<br/>
+</div>
+
+
+<script type="text/javascript">
+	// Create a map object
+	var map = new YMap(document.getElementById('map'));
+
+	// Add map type control
+	//map.addTypeControl();
+
+	// Add map zoom (long) control
+	map.addZoomLong();
+
+	// Add the Pan Control
+	map.addPanControl();
+
+	// Set map type to either of: YAHOO_MAP_SAT, YAHOO_MAP_HYB, YAHOO_MAP_REG
+	map.setMapType(YAHOO_MAP_REG);
+
+	// Display the map centered on a geocoded location
+	map.drawZoomAndCenter("USA", 15);
+</script>
+
+   
+   <div id="popupContact">
+			<a id="popupContactClose">x</a>
+			<h1>Title of the URL!</h1>
+		<p id="contactArea">				
+			<textarea id="button" cols="60" rows="40"><!--test-->
+				Resizable textarea- Article
+				(CNN) -- A teen bull rider was kicked at least once in the chest after she was thrown and later died, Florida authorities said Saturday.
+
+		Brooke Ann Coats, 16, died from injuries Friday evening at Tampa General Hospital, according to the Hillsborough County Sheriff's Office.
+		
+		Coats was able to walk out of the ring after the 8:30 p.m. incident at 301 Rodeo on U.S. 301S, east of Tampa, the office said in a statement. She experienced difficulty breathing and collapsed.
+		
+		An off-duty paramedic rendered aid until Coats was taken to the hospital, where she died during surgery, officials said.
+		
+		An investigation continues, but detectives do not suspect foul play.
+		         </textarea>
+		</p>
+	</div>
+	
+	<div id="backgroundPopup"></div> 
+
+
+</body>
+</html>
+		
