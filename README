@@ -1,0 +1,6 @@
+Team Project with Tilman Dingler and Nabeeh Ghanem 
+
+I mostly worked on general.js but also collaborated on other files. 
+
+The objective of this project is to close the gap between news and the geographical location they are most relevant to. Machine learning algorithms and natural language processing can do a bulk of work by analyzing texts for semantics and geographical entities. However, there are tasks that are easier and more accurately done by humans. So, when it comes to allocating news items to relevant neighborhoods, human input is highly valuable. Thus, we want to create a mechanism in form of a game to motivate people to provide this data.
+Luis von Ahn has coined the term Games with a Purpose (GWAP) where human players are encouraged to provide valuable data while playing and being entertained [4]. We took this as a motivation to create the game zoom! where players gradually narrow down geographical areas with relevance to specific news items.
